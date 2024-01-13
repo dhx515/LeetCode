@@ -7,7 +7,6 @@ class Solution(object):
         cur_number = num
         while True:
             
-            
             if cur_number <= 1:
                 break
             
