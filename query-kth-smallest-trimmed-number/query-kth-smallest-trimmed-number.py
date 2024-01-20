@@ -10,8 +10,8 @@ class Solution(object):
             k, trim = queries[iter]
             cur_nums = []
             for iter, num in enumerate(nums):
-                tmp = num[len(num)-trim:]
-                cur_nums.append([int(tmp), iter])
+                trimmed_num = int(num[len(num)-trim:])
+                cur_nums.append([int(trimmed_num), iter])
             cur_nums.sort()
             res.append(cur_nums[k-1][1])
         
