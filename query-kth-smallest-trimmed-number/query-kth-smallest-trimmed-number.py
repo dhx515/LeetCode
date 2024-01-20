@@ -6,8 +6,7 @@ class Solution(object):
         :rtype: List[int]
         """
         res = []
-        for iter in range(len(queries)):
-            k, trim = queries[iter]
+        for k, trim in queries:
             cur_nums = []
             for iter, num in enumerate(nums):
                 trimmed_num = int(num[len(num)-trim:])
