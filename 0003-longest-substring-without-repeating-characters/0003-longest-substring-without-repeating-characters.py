@@ -5,19 +5,14 @@ class Solution(object):
         :rtype: int
         """
         longest_cnt = 0
-        iter = 0
+        lft = 0
+        mem = {}
         
-        for iter in range(len(s)):
-            mem = {}
-            cnt = 0
-            i = iter
-            while i < len(s):
-                if s[i] not in mem.keys():
-                    mem[s[i]] = 0
-                    i += 1
-                    cnt += 1
-                else:
-                    break
-            longest_cnt = max(longest_cnt, cnt)
+        for rgt, char in enumerate(s):
+            if char in mem.keys() and lft <= mem[char]:
+                lft = mem[char]+1
+            else:
+                longest_cnt = max(longest_cnt, rgt-lft + 1)
+            mem[char] = rgt
             
         return longest_cnt
