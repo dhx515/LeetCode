@@ -1,0 +1,6 @@
+/* Write your PL/SQL query statement below */
+SELECT UNIQUE_ID,
+       NAME
+  FROM EMPLOYEES 
+  LEFT OUTER JOIN EMPLOYEEUNI
+ USING (ID)
