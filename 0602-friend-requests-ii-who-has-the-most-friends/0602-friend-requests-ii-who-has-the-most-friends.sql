@@ -14,7 +14,7 @@ FROM
              RequestAccepted 
          GROUP BY requester_id
 
-        union all
+         UNION ALL
 
          SELECT
              COUNT(accepter_id) temp,
