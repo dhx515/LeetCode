@@ -4,11 +4,7 @@ class Solution(object):
         :type nums: List[int]
         :rtype: int
         """
-        mem = {}
+        ans = 0
         for num in nums:
-            if num in mem.keys():
-                del mem[num]
-            else:
-                mem[num] = 0
-        for key in mem.keys():
-            return key
+            ans ^= num
+        return ans
