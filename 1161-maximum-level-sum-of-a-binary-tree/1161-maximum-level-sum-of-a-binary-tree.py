@@ -9,16 +9,8 @@ class Solution(object):
         self.ans = []
     
     def maxLevelSum(self, root):
-        """
-        :type root: TreeNode
-        :rtype: int
-        """
         self.bfs(root, 1)
-        res = -1
-        for i, value in enumerate(self.ans):
-            if value == max(self.ans):
-                res = i+1
-                break
+        res = self.findMinPosMaxVal()
         return res
     
     def bfs(self, root, level):
@@ -31,3 +23,11 @@ class Solution(object):
         
         self.bfs(root.left, level+1)
         self.bfs(root.right, level+1)
+        
+    def findMinPosMaxVal(self):
+        res = -1
+        for i, value in enumerate(self.ans):
+            if value == max(self.ans):
+                res = i+1
+                break
+        return res
