@@ -5,8 +5,4 @@ class Solution(object):
         :type word2: List[str]
         :rtype: bool
         """
-        ans = False
-        if ''.join(word1) == ''.join(word2):
-            ans = True
-            
-        return ans
+        return ''.join(word1) == ''.join(word2)
