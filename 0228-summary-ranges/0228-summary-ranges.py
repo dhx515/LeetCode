@@ -5,18 +5,28 @@ class Solution(object):
         :rtype: List[str]
         """
         ans = []
-        if nums == []:
+        if not nums:
             return ans
-        
-        mem = str(nums[0])
-        for i in range(1, len(nums)):
-            if nums[i-1] + 1 != nums[i]:
-                if str(nums[i-1]) != mem:
-                    mem += "->" + str(nums[i-1])
-                ans.append(mem)
-                mem = str(nums[i])
-        if int(mem) != nums[-1]:
-            mem += "->" + str(nums[-1])
-        ans.append(mem)
-        
+
+        start = end = nums[0]
+
+        for num in nums[1:]:
+            if num == end + 1:
+                # 연속되는 숫자인 경우 끝점을 업데이트
+                end = num
+            else:
+                # 연속되지 않는 경우 현재까지의 범위를 추가
+                if start == end:
+                    ans.append(str(start))
+                else:
+                    ans.append(str(start) + "->" + str(end))
+                # 새로운 범위 시작
+                start = end = num
+
+        # 마지막 범위를 추가
+        if start == end:
+            ans.append(str(start))
+        else:
+            ans.append(str(start) + "->" + str(end))
+
         return ans
