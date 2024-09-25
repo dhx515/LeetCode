@@ -4,4 +4,4 @@ class Solution(object):
         :type n: int
         :rtype: bool
         """
-        return str(bin(n))[2:].count('1') == 1 and n > 0
+        return n > 0 and (n & (n - 1)) == 0
