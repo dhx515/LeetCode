@@ -5,7 +5,9 @@ class Solution(object):
         :rtype: bool
         """
         x, y = 0, 0
-        mem = {'0,0': 0}
+        visited = set()
+        visited.add((x, y))
+
         for move in path:
             if move == 'N':
                 y += 1
@@ -15,8 +17,9 @@ class Solution(object):
                 x += 1
             elif move == 'W':
                 x -= 1
-            cur = str(x) + ',' + str(y)
-            if cur in mem.keys():
+            
+            if (x, y) in visited:
                 return True
-            mem[cur] = 0
+            visited.add((x, y))
+            
         return False
